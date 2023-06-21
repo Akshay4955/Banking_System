@@ -42,7 +42,7 @@ public class DBOperation
         connection.Close();
     }
 
-    public void AddBranch(Branch branch, string bankName)
+    public void AddBranch(Branch branch)
     {
         connection = new SqlConnection(connectionString);
         connection.Open();
@@ -50,7 +50,7 @@ public class DBOperation
         SqlCommand insertBranch = new SqlCommand("spAddBranch", connection);
         insertBranch.CommandType = System.Data.CommandType.StoredProcedure;
         insertBranch.Parameters.AddWithValue("@BranchName", branch.Name);
-        insertBranch.Parameters.AddWithValue("@BankName", bankName);
+        insertBranch.Parameters.AddWithValue("@BankName", branch.bank.Name);
 
         insertBranch.ExecuteNonQuery();
         connection.Close();

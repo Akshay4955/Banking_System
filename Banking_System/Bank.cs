@@ -17,6 +17,6 @@ public class Bank
 
     public void AddBranch(Branch branch)
     {
-        dBOperation.AddBranch(branch, branch.bank.Name);
+        dBOperation.AddBranch(branch);
     }
 }
