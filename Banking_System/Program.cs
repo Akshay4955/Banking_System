@@ -13,5 +13,8 @@ internal class Program
         branch.AddCustomer(new Customer("Akshay"));
         branch.AddCustomer(new Customer("Rahul"));
         customer.AddAccount(new Account("A00002", 30000, "Rahul", "Hinjewadi", "BOM"));
+
+        Bank bank = new Bank();
+        bank.AddBranch(new Branch("Pune", "BOM"));
     }
 }

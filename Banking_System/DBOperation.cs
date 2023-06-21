@@ -19,7 +19,7 @@ public class DBOperation
 
         SqlCommand insertAccount = new SqlCommand("spAddAccount", connection);
         insertAccount.CommandType = System.Data.CommandType.StoredProcedure;
-        insertAccount.Parameters.AddWithValue("@BankName", account.bank.Name);
+        insertAccount.Parameters.AddWithValue("@BankName", account.branch.bank.Name);
         insertAccount.Parameters.AddWithValue("@BranchName", account.branch.Name);
         insertAccount.Parameters.AddWithValue("@CustName", account.customer.Name);
         insertAccount.Parameters.AddWithValue("@AccNumber", account.AccountNumber);
@@ -39,6 +39,20 @@ public class DBOperation
         insertCustomer.Parameters.AddWithValue("@CustName", customer.Name);
 
         insertCustomer.ExecuteNonQuery();
+        connection.Close();
+    }
+
+    public void AddBranch(Branch branch, string bankName)
+    {
+        connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        SqlCommand insertBranch = new SqlCommand("spAddBranch", connection);
+        insertBranch.CommandType = System.Data.CommandType.StoredProcedure;
+        insertBranch.Parameters.AddWithValue("@BranchName", branch.Name);
+        insertBranch.Parameters.AddWithValue("@BankName", bankName);
+
+        insertBranch.ExecuteNonQuery();
         connection.Close();
     }
 }
