@@ -22,4 +22,9 @@ public class Branch
     {
         dBOperation.AddCustomer(customer);
     }
+
+    public void GetTotalBalanceBranch(string branchName, string bankName)
+    {
+        dBOperation.GetTotaLBalanceBranch(branchName, bankName);
+    }
 }

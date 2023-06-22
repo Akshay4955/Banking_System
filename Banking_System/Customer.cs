@@ -29,4 +29,9 @@ public class Customer
     {
         dBOperation.WithdrawMoney(account, withdrawAmount);
     }
+
+    public void GetTotalBalanceCustomer(string name)
+    {
+        dBOperation.GetTotaLBalanceCustomer(name);
+    }
 }

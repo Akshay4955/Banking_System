@@ -19,4 +19,9 @@ public class Bank
     {
         dBOperation.AddBranch(branch);
     }
+
+    internal void GetTotalBalanceBank(string bankName)
+    {
+        dBOperation.GetTotaLBalanceBank(bankName);
+    }
 }

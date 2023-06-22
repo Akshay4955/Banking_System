@@ -13,6 +13,7 @@ internal class Program
         branch.AddCustomer(new Customer("Akshay"));
         branch.AddCustomer(new Customer("Rahul"));
         customer.AddAccount(new Account("A00002", 30000, "Rahul", "Hinjewadi", "BOM"));
+        customer.AddAccount(new Account("A00004", 30000, "Akshay", "Hinjewadi", "BOB"));
 
         Bank bank = new Bank();
         bank.AddBranch(new Branch("Pune", "BOM"));
@@ -20,8 +21,16 @@ internal class Program
         customer.DepositMoney("A00001", 1000);
         customer.DepositMoney("A00003", 10000);
 
-        customer.WithdrawMoney("A00001", 5000);
+        customer.WithdrawMoney("A00001", 1000);
         customer.WithdrawMoney("A00002", 32000);
         customer.WithdrawMoney("A00004", 4000);
+
+        customer.GetTotalBalanceCustomer("Akshay");
+        customer.GetTotalBalanceCustomer("Vishal");
+
+        branch.GetTotalBalanceBranch("Hinjewadi", "BOM");
+        branch.GetTotalBalanceBranch("Pirangut", "BOM");
+
+        bank.GetTotalBalanceBank("BOM");
     }
 }

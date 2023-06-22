@@ -91,4 +91,47 @@ public class DBOperation
             Console.WriteLine("Account not found with given account number or your balance is insufficient ");
         connection.Close();
     }
+
+    public void GetTotaLBalanceCustomer(string name)
+    {
+        connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        SqlCommand customerBalanceCommand = new SqlCommand("spGetTotalBalanceCustomer", connection);
+        customerBalanceCommand.CommandType = System.Data.CommandType.StoredProcedure;
+        customerBalanceCommand.Parameters.AddWithValue("@CustName", name);
+
+        var totalBalance = customerBalanceCommand.ExecuteScalar();
+        Console.WriteLine($"Total balance for customer {name} is {totalBalance}");
+        connection.Close();
+    }
+
+    public void GetTotaLBalanceBranch(string branchName, string bankName)
+    {
+        connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        SqlCommand branchBalanceCommand = new SqlCommand("spGetTotalBalanceBranch", connection);
+        branchBalanceCommand.CommandType = System.Data.CommandType.StoredProcedure;
+        branchBalanceCommand.Parameters.AddWithValue("@BranchName", branchName);
+        branchBalanceCommand.Parameters.AddWithValue("@BankName", bankName);
+
+        var totalBalance = branchBalanceCommand.ExecuteScalar();
+        Console.WriteLine($"Total balance for branch {branchName} of bank {bankName} is {totalBalance}");
+        connection.Close();
+    }
+
+    internal void GetTotaLBalanceBank(string bankName)
+    {
+        connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        SqlCommand customerBalanceCommand = new SqlCommand("spGetTotalBalanceBank", connection);
+        customerBalanceCommand.CommandType = System.Data.CommandType.StoredProcedure;
+        customerBalanceCommand.Parameters.AddWithValue("@BankName", bankName);
+
+        var totalBalance = customerBalanceCommand.ExecuteScalar();
+        Console.WriteLine($"Total balance for bank {bankName} is {totalBalance}");
+        connection.Close();
+    }
 }
