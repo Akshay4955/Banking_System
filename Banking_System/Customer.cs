@@ -7,7 +7,7 @@ public class Customer
 
     public Customer() 
     {
-        dBOperation = new DBOperation(@"Data Source = LAPTOP-9639UT7T; Database = Banking_System; Integrated Security = True;");
+        dBOperation = new DBOperation();
     }
     public Customer(string name)
     {
@@ -18,5 +18,15 @@ public class Customer
     public void AddAccount(Account account)
     {
         dBOperation.AddAccount(account);
+    }
+
+    public void DepositMoney(string account, double depositAmount)
+    {
+        dBOperation.DepositMoney(account, depositAmount);
+    }
+
+    public void WithdrawMoney(string account, double withdrawAmount)
+    {
+        dBOperation.WithdrawMoney(account, withdrawAmount);
     }
 }

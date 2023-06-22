@@ -7,7 +7,7 @@ public class Bank
 
     public Bank()
     {
-        dBOperation = new DBOperation(@"Data Source = LAPTOP-9639UT7T; Database = Banking_System; Integrated Security = True;");
+        dBOperation = new DBOperation();
     }
     public Bank(string name)
     {

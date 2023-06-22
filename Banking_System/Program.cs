@@ -16,5 +16,12 @@ internal class Program
 
         Bank bank = new Bank();
         bank.AddBranch(new Branch("Pune", "BOM"));
+
+        customer.DepositMoney("A00001", 1000);
+        customer.DepositMoney("A00003", 10000);
+
+        customer.WithdrawMoney("A00001", 5000);
+        customer.WithdrawMoney("A00002", 32000);
+        customer.WithdrawMoney("A00004", 4000);
     }
 }

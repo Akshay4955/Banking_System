@@ -8,7 +8,7 @@ public class Branch
 
     public Branch() 
     {
-        dBOperation = new DBOperation(@"Data Source = LAPTOP-9639UT7T; Database = Banking_System; Integrated Security = True;");
+        dBOperation = new DBOperation();
     }
 
     public Branch(string name, string bankName)
